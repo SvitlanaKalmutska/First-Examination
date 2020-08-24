@@ -1,0 +1,495 @@
+@import "box-sizing";
+@import "fonts";
+@import "container";
+@import "logo";
+@import "title";
+
+@mixin font ($ff, $fs, $fc) {
+    font-family: $ff;
+    font-size: $fs;
+    color: $fc;
+}
+
+@mixin button ($w, $h, $bgc) {
+    width: $w;
+    height: $h;
+    background-color: $bgc;
+}
+
+@mixin btn_text ($ta, $pt, $ttr, $lh, $lsp, $ff, $fs, $fc) {
+    text-align: $ta;
+    padding-top: $pt;
+    text-transform: $ttr;
+    line-height: $lh;
+    letter-spacing: $lsp;
+    font-family: $ff;
+    font-size: $fs;
+    color: $fc;
+}
+
+%hover-styles {
+    transition: all ease 0.2s;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.header {
+    background: url(/First-Examination/images/back1.jpg);
+    background-size: cover;
+    display: flex;
+    padding-bottom: 10vh;
+
+    &__logo {
+        font-size: 48px;
+        letter-spacing: 4.8px;
+        padding-top: 25vh;
+    }
+
+    &__text {
+        @include font (JosefinSans-Regular, 22px, #ffffff);
+        letter-spacing: 6.82px;
+    }
+
+    &__form {
+        background: #ffffff;
+        position: relative;
+        margin-top: 50px;
+        margin-left: -35%;
+
+
+        & input {
+            @include font (JosefinSans-Regular, 14px, #999999);
+            line-height: 1.86;
+            letter-spacing: 2.8px;
+            width: 135%;
+            height: 4vh;
+            text-align: center;
+            border: 2px solid #7BA7AB;
+            outline: none;
+            background: #ffffff;
+            color: #9E9C9C;
+        }
+
+        & button {
+            @include font (aleo-regular-webfont, 14px, #ffffff);
+            line-height: 1.86;
+            letter-spacing: 1.4px;
+            position: absolute;
+            top: 0;
+            left: 106%;
+            width: 28%;
+            height: 95%;
+            border: none;
+            background: #5474fd;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        & button:hover {
+            @extend %hover-styles;
+            color: #19286b;
+        }
+
+        & button:focus {
+            outline: none;
+        }
+    }
+
+    &__scroll {
+        @include font (JosefinSans-Regular, 14px, #ffffff);
+        padding-top: 120px;
+        padding-left: 40%;
+
+        &-icon {
+            padding-left: 46%;
+        }
+
+        &-icon:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.navigation {
+    background: #5474fd;
+    background-size: cover;
+    height: 8vh;
+    padding-top: 1%;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 24px;
+        padding-left: 5%;
+    }
+
+    .menue {
+        margin-right: 3%;
+
+        .menu__list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            margin-right: 80px;
+
+            &-item {
+                list-style-type: none;
+                @include font (aleo-regular-webfont, 14px, #ffffff);
+                text-transform: uppercase;
+                line-height: 1.86;
+            }
+
+            &-item:hover {
+                @extend %hover-styles;
+                color: #19286b;
+            }
+        }
+    }
+}
+
+.choose {
+    background: url(/First-Examination/images/back2.jpg);
+    background-size: cover;
+    padding-bottom: 15vh;
+
+    &__container {
+        padding-top: 20vh;
+        position: relative;
+
+        .choose-description {
+            width: 50%;
+
+            &__text {
+                @include font (JosefinSans-Regular, 16px, #ffffff);
+                line-height: 1.63;
+                letter-spacing: 1.6px;
+                padding-top: 4vh;
+                padding-bottom: 4vh;
+            }
+
+            &__btn {
+                @include button (40%, 6vh, #5474fd);
+
+                &-text {
+                    @include btn_text (center, 1.5vh, uppercase, 1.63, 1.2px, aleo-regular-webfont, 16px, #ffffff);
+                }
+            }
+
+            &__btn:hover {
+                @extend %hover-styles;
+            }
+
+            // this hover doesn't work
+        }
+
+        .choose-gallery {
+            max-width: 1100px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            &__img {
+                width: 50%;
+                margin-left: auto;
+                padding-top: 13vh;
+                margin-right: -8%;
+                position: relative;
+
+                & img {
+                    width: 350px;
+                    height: 220px;
+                }
+
+                // I can't give my images any unfixed sizes (( 
+
+                &-mount {
+                    position: absolute;
+                    right: 12%;
+                    padding-top: 1%;
+                }
+            }
+        }
+    }
+}
+
+.action {
+    background: #333333;
+    background-size: cover;
+    padding-bottom: 10vh;
+
+    .container__action {
+        display: flex;
+        justify-content: space-between;
+
+        .action__box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10vh;
+
+            .action__search-icon {
+                display: block;
+                width: 58px;
+                height: 57px;
+                fill: #5474fd;
+                padding-bottom: 3vh;
+            }
+
+            .action__select-icon {
+                display: block;
+                width: 60px;
+                height: 61px;
+                fill: #ff6363;
+                padding-bottom: 3vh;
+            }
+
+            .action__book-icon {
+                display: block;
+                width: 62px;
+                height: 59px;
+                fill: #00a2ff;
+                padding-bottom: 3vh;
+            }
+        }
+
+        .action__box:hover {
+            @extend %hover-styles;
+        }
+
+        .title {
+            color: #e8e8e8;
+        }
+    }
+}
+
+.booking-left {
+    background: url(/First-Examination/images/back3.jpg);
+    background-size: cover;
+    padding-bottom: 15vh;
+    height: 70vh;
+
+    .card-left {
+        width: 50%;
+        background-color: #232323;
+        opacity: 0.9;
+        padding-bottom: 5%;
+        position: relative;
+        top: 25vh;
+
+        &__country {
+            @include font (JosefinSans-Regular, 20px, #e8e8e8);
+            line-height: 1.3;
+            letter-spacing: 1.5px;
+            padding-top: 8%;
+            padding-left: 8%;
+        }
+
+        &__name {
+            @include font (JosefinSans-Regular, 20px, #ffffff);
+            text-transform: uppercase;
+            line-height: 1.3;
+            padding-top: 5%;
+            padding-left: 8%;
+        }
+
+        &__description {
+            @include font (JosefinSans-Regular, 16px, #e8e8e8);
+            line-height: 1.63;
+            padding-top: 5%;
+            padding-left: 8%;
+            padding-bottom: 8%;
+            padding-right: 3%;
+        }
+
+        &__btn {
+            @include button (40%, 6vh, #5474fd);
+            margin-left: 8%;
+
+            .text {
+                @include btn_text (center, 1.5vh, uppercase, 1.63, 1.2px, aleo-regular-webfont, 16px, #ffffff);
+            }
+        }
+
+        &__btn:hover {
+            @extend %hover-styles;
+        }
+    }
+}
+
+.booking-right {
+    background: url(/First-Examination/images/back4.jpg);
+    background-size: cover;
+    padding-bottom: 15vh;
+    height: 70vh;
+
+    .card-right {
+        width: 50%;
+        background-color: #232323;
+        opacity: 0.9;
+        padding-bottom: 5%;
+        position: relative;
+        top: 25vh;
+        margin-left: auto;
+
+        &__country {
+            @include font (JosefinSans-Regular, 20px, #e8e8e8);
+            line-height: 1.3;
+            letter-spacing: 1.5px;
+            padding-top: 8%;
+            padding-left: 8%;
+        }
+
+        &__name {
+            @include font (JosefinSans-Regular, 20px, #fefefe);
+            text-transform: uppercase;
+            line-height: 1.3;
+            padding-top: 5%;
+            padding-left: 8%;
+        }
+
+        &__description {
+            @include font (JosefinSans-Regular, 16px, #e8e8e8);
+            line-height: 1.63;
+            padding-top: 5%;
+            padding-left: 8%;
+            padding-bottom: 8%;
+            padding-right: 3%;
+        }
+
+        &__btn {
+            @include button (40%, 6vh, #5474fd);
+            margin-left: 8%;
+
+            .text {
+                @include btn_text (center, 1.5vh, uppercase, 1.63, 1.2px, aleo-regular-webfont, 16px, #ffffff);
+            }
+        }
+
+        &__btn:hover {
+            @extend %hover-styles;
+        }
+    }
+}
+
+.our-tourists {
+    background: url(/First-Examination/images/back5.jpg);
+    background-size: cover;
+    padding-bottom: 25vh;
+
+    &__container {
+        padding-top: 13vh;
+
+        .title {
+            text-align: center;
+        }
+
+        .our-tourists__box {
+            padding-top: 15vh;
+            display: flex;
+            width: 100%;
+            height: 31.2vh;
+
+            &-img {
+                width: 445px;
+                height: 284px;
+
+                & img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: fill;
+                }
+            }
+
+            &-content {
+                background-color: #333333;
+                padding-bottom: 5%;
+                width: 60%;
+                height: 100%;
+            }
+
+            &-name {
+                @include font (JosefinSans-Regular, 20px, #fefefe);
+                text-transform: uppercase;
+                line-height: 1.3;
+                padding-left: 7%;
+                padding-top: 6%;
+            }
+
+            &-impression {
+                @include font (JosefinSans-Regular, 16px, #e8e8e8);
+                line-height: 1.63;
+                padding-left: 7%;
+                padding-top: 6%;
+                padding-right: 4%;
+
+                span {
+                    padding-left: 1%;
+                }
+
+                svg.quote {
+                    fill: #5474fd;
+                    width: 20px;
+                    height: 20px;
+                    position: relative;
+                    bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background: #232323;
+    background-size: cover;
+    padding-bottom: 8vh;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 14vh;
+    }
+
+    &__logo {
+        font-size: 24px;
+        line-height: 1.08;
+        letter-spacing: 3.36px;
+    }
+
+    &__credo {
+        @include font (JosefinSans-Regular, 16px, #ffffff);
+        line-height: 1.63;
+        letter-spacing: 1px;
+    }
+
+    &__social {
+        svg {
+            fill: #e8e8e8;
+            width: 15px;
+            height: 15px;
+            padding-right: 14px;
+            margin-left: 8px;
+            padding-top: 3vh;
+        }
+
+        svg:hover {
+            fill: #5474fd;
+            cursor: pointer;
+            transition: all ease 0.2s;
+            transform: scale(1.1);
+        }
+    }
+}
